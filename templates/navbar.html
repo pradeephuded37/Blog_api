@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"> 
+<ul>
+    <li><a class="Active" href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'about' %}">About</a></li>
+    {% if user.is_authenticated %}
+      
+    <li><a href="{% url 'profile' %}">profile</a></li>
+    <li><a href="{% url 'logout' %}">logout</a></li>
+    {% else %}
+    <li><a href="{% url 'register' %}">sign up</a></li>
+    <li><a href="{% url 'login' %}"> login </a></li>
+    {% endif %}
+</ul>
+
+{% endblock content %}
